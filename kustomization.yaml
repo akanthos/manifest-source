@@ -1,0 +1,16 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Include your base Kubernetes resources
+#resources:
+#  - deployment.yaml
+
+# Generate a ConfigMap from the BPMN files
+configMapGenerator:
+  - name: bpmn-models
+    files:
+      - models/file.txt
+      - models/file2.txt
+    options:
+      disableNameSuffixHash: true
